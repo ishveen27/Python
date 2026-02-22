@@ -1,1 +1,1 @@
-# Python
+# Daily Python Practice & Problem Solving
