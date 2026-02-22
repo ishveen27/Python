@@ -1,0 +1,13 @@
+for i in range(6):
+    print(i)
+    # if i==4:
+    #     break
+else:
+    print("sorry no i")
+
+for i in range(6):
+    # print(" the  iteration no {}  in for loop".format(i+1)) #the .format() function replaces {} with the value you pass inside it.
+    print(f" the  iteration no {i+1}  in for loop")
+else:
+    print("else block in loop")
+print("Out of loop")

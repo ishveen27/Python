@@ -1,0 +1,125 @@
+#  if elif statement
+age= int(input("enter the age:"))
+if age>=18 :
+  print("yes")
+else:
+  print("no")
+
+# nested if
+x = int(input("enter the number:"))
+if (x<0):
+   print("x is small than 0")
+elif (x>0):
+   if(x>1 and x<=10):
+    print("x is between 1 and 10 ")
+   elif(x>10 and x<=20):
+    print(" x is between 10 and 20")
+   else:
+      print(" x is greator than 20")
+else : 
+   print("x is zero")
+
+# match case statement
+x = int(input("enter the number:"))
+match x :
+  case 0 :
+    print("value if 0")
+  case 1:
+    print ("value is 1")
+  case _ if x!=90:
+    print(x,"is not 90")
+  case _ if x!= 80:
+    print(x, "is not 80")
+  case _ :
+    print(x,"is nthing")
+
+# exercise good morning
+import time
+t = time.strftime("%H:%M:%S") #strftime("%H:%M:%S") is used — to get current time in HH:MM:SS format as a string
+print("Current time:", t)
+hour = int(time.strftime("%H"))# we apply int bcoz it will assume string and return 07 without int
+# hour = int(input("enter the hour:"))
+print(hour) 
+if(hour>=0 and hour < 12):
+    print("good morning")
+if(hour>=12 and hour< 17):
+  print("good afternoon")
+if(hour>=17 and hour<0): 
+    print("good night")
+
+# print(time.strftime("%I:%M %p"))   # 12-hour format with AM/PM
+# print(time.strftime("%d-%m-%Y"))   # Date: day-month-year
+# print(time.strftime("%A"))         # Full weekday name
+ 
+# greatest of four number
+a = int(input("enter a:"))
+b = int(input("enter b:")) 
+c = int(input("enter c:"))
+d = int(input("enter d:"))
+if a >= b and a >= c and a >= d:
+    print("a is greatest:", a)
+elif b >= a and b >= c and b >= d:
+    print("b is greatest:", b)
+elif c >= a and c >= b and c >= d:
+    print("c is greatest:", c)
+else:
+    print("d is greatest:", d)
+
+#     greatest = max(a, b, c, d)
+#     print("Greatest number is:", greatest)
+
+# length of username is less than 10
+# Program to check username length
+username = input("Enter your username: ")
+
+if len(username) < 10:
+    print("Username is less than 10 characters")
+else:
+    print("Username has 10 or more characters")
+ 
+ # pass if greator than 40
+sub1 = int(input("enter the marks for sub1:"))
+sub2 = int(input("enter the marks for sub2:"))
+sub3 = int(input("enter the marks for sub3:"))
+
+total = sub1 + sub2 + sub3
+percentage = total/3
+
+if(percentage>=40 and sub1>=33 and sub2>=33 and sub3>=33):
+   print("student is passed")
+else:
+   print("student is failed")
+
+# grade system
+marks = int(input("enter the marks"))
+if(marks>=90 and marks<100):
+     print("A+")
+elif(marks>=80 and marks<90):   
+    print("A")
+elif(marks>=70 and marks<=80):
+    print("B")
+elif(marks>=60 and marks<70):
+    print("C")
+elif(marks>=50 and marks<60):
+    print("D")
+elif(marks>=40 and marks<50):
+    print("E")
+else:
+    print("failed")
+
+# length
+username = input("enter the username:")
+if len(username)<10:
+   print("username is valid")
+else:
+   print("username is invalid")
+
+# find out if a post is talking about harry or not
+''' post.lower() : convert the input into lowercase no matter "HARRY","harry","Harry" '''
+post = input("Enter your post: ")
+if "harry" in post.lower():   # .lower() makes it case-insensitive
+    print("Yes, the post is talking about Harry.")
+else:
+    print("No, the post is not talking about Harry.")
+
+        
