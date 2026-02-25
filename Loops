@@ -1,0 +1,126 @@
+# PRINT NUMBER FROM 1 TO 50 USING WHILE LOOP
+
+num = 1   # start from 1
+while num <= 50:
+    print(num)
+    num += 1 
+# printing content of a list
+
+list = ["hello","buffalo","meow"]
+i = 0
+while i<len(list):
+    print(list[i])
+    i+=1
+
+#emulate do while loop in python
+
+i = 1
+while True:
+    print(i)
+    i += 1
+    if i > 5:   # exit condition
+        break
+
+#FOR LOOP
+name = "ishveen kaur"
+for i in name :
+    print(i)
+    if(i=="n"):
+     print("this is so beautiful name")
+
+
+#for loop in list
+list = ["red","pink","white"]
+for colour in list:
+   print(colour)
+   for i in colour:
+      print(i)
+
+#for loop with break
+i = 1
+while True:
+  print(i)
+  i+=1
+  if(i>5):
+   break
+
+# for loop in range with continue:
+for i in range (1,20,2):
+   if(i == 3):
+    continue
+   print(i)
+
+# pass statement 
+list = ["a","b","c"]
+for i in list:
+  pass
+
+# multiplication table
+ 
+num = int(input("enter the number:"))
+for i in range(11):
+   print(num,"x", i, "=",num*i)
+
+# greet name
+
+name = ["ishveen","sam","Sashu","Suman"]
+for i in name:
+    if i.startswith("S"):
+        print("Hello", i + "!")
+#using while loop
+
+name = ["ishveen","sam","Sashu","Suman"]
+i = 0
+while i<len(name):
+    if name[i].startswith("S"):
+        print("Hello", name[i] + "!")
+    i+=1
+    
+#multiplication table in reverse
+
+num = int(input("enter the number:"))
+for i in range(10,0,-1):
+   print(num,"x", i, "=",num*i)
+#sum of natural number using while loop
+
+n = int(input("enter the num:"))
+i = 1
+sum = 0
+while(i<=n):
+   sum+=i
+   i += 1 
+print(sum)
+
+# usinf for loop
+
+n = int(input("Enter a number: "))
+sum = 0
+
+for i in range(1, n+1):
+    sum += i
+
+print("Sum of first", n, "natural numbers is:", sum)
+
+
+# factoria of num using for loop
+
+num = int(input("enter the num:"))
+fact = 1
+for i in range(1,num+1):
+    fact*=i
+print(fact)
+
+
+# prime numbeer
+
+n = int(input("enter the num:"))
+if(n<=1):
+    print(n,"is not prime")
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            print(n, "is not a prime number")
+            break
+    else:
+        print(n, "is a prime number")
+

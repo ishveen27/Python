@@ -1,0 +1,72 @@
+# loop in string
+a = "he said, \"i want you"
+# a = 'he said, "i want you'
+print(a[0])
+for characters in a:
+    print(characters)
+print(a)
+
+# string slicing
+a = "harry"
+print(len(a))
+print(a[0:5]) # harry includes start index only and last index is not included
+print(a[:5]) # harry
+print(a[1:4]) #arr
+print(a[:-3])# ha  when start is not there it assume 0
+print(a[-4:-2]) # ar
+print(a[:]) # harry when nthing is there it assumes length
+print(a[:len(a)-3])# ha
+# So [::2] means:
+'''Start from beginning (since no start given)
+Go till end (since no stop given)
+Take every 2nd element (skip 1 in between)'''
+#[::n] → skip (n-1) elements
+
+# string function
+a = "harry"
+print(len(a))                  # length of string
+print(a.rstrip("y"))           # remove trailing 'y'
+b = "welcome to the welcome console"
+print(a.capitalize())          # first letter capitalized
+print(a.endswith("y"))        # check if ends with 'y'
+print(a.endswith("to",4,10))
+print(b.startswith("w"))       # check if starts with 'w'
+print(b.upper())
+print(b.lower())
+print(b.islower())
+print(b.isupper())
+print(b.istitle()) # if first letter of each word is capitalizsed or 
+print(b.swapcase())
+print(b.count("welcome")) # how many time a word occur
+print(b.strip())
+print(b.find("welcome")) # return the index of first occurence of a word
+print(a.replace("harry","john"))
+print(b.isalpha())
+print(b.isalnum())
+print(b.isprintable())
+print(b.isspace())
+print(b.title())# captialize each letter of the word
+print(b.split(" "))
+
+
+#practise
+
+# Program to detect double spaces in a string
+
+text = input("Enter a string: ")
+
+# Method 1: using find()
+pos = text.find("  ")   # returns index of first double space, -1 if not found
+
+if pos != -1:
+    print("Double space found at index:", pos)
+else:
+    print("No double spaces found.")
+
+# replace double space with single space
+a = "hello  yes"
+print(a.replace("  ", " "))
+
+# escape sequence character
+a = "dear harry,\n\tthis python course is nice.\nthanks!"
+print(a)
