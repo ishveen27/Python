@@ -1,0 +1,19 @@
+'''lambda function are anonymous func that are use for one line func and when we want to pass 
+func as an argument to another func. It is mainly used for higher order functionn like map,reduce and filter''''
+
+cube = lambda x : x*x
+print(cube(5))
+
+def hello(fx,value):
+    return fx(value)
+print(hello(lambda x: x*x*x,5))
+# print(hello(cube,5))
+
+multiply = lambda x,y : x*y
+sum = lambda x,y : x+y
+average = lambda x,y,z : (x+y+z)/3
+
+def func(n):
+    return lambda a : a*n
+mydoubler = func(2)# n=2 # it returns lambda a : a*2
+print(mydoubler(11))# a = 11

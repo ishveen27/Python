@@ -1,0 +1,241 @@
+# object and class
+class employee:# class
+    name = "ishu"
+    age = "21"
+    salary = 700000
+    def info(self):# self is reference to the object
+     print(f"the name of employee is {self.name} and salary is {self.salary}")
+a = employee()# object
+b = employee()
+b.name = "arsh"
+b.salary = 1200000
+a.info()
+b.info()
+
+# paramterised constructor
+class student:
+   def __init__(self,name,rollno):
+    self.name = name 
+    self.rollno = rollno
+
+
+   def func(self):
+     print(f"the name of student is {self.name} and roll no is {self.rollno}")
+a = student("ishu","7")
+b = student("arsh","2")
+a.func()
+b.func()
+
+
+
+# default constructor
+class Student:
+    def __init__(self):
+        self.name = "Unknown"
+        self.rollno = 0
+        print(f"The name of student is {self.name} and roll no is {self.rollno}")
+a = Student()   # calls default constructor
+b = Student()   # calls default constructor
+
+# copy constructor
+# using copy moddule
+import copy
+
+class Car:
+    def __init__(self, brand, price):
+        self.brand = brand
+        self.price = price
+
+c1 = Car("BMW", 5000000)
+c2 = copy.copy(c1)      # shallow copy
+c3 = copy.deepcopy(c1)  # deep copy
+# decorator
+def greet(func):
+   def mfx():
+      print("yes working")
+      func()
+      print("yef after func work")
+   return mfx
+@greet
+def hlo():
+   print("hello")
+#greet(hello)()
+hlo()
+
+# getter and setter using pythonic
+class Student:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+        
+
+    @name.setter
+    def name(self, value):
+        self._name = value
+
+s = Student("Ishveen")
+print(s.name)  # Ishveen
+s.name = "Arsh"  # calls setter
+print(s.name)    # Arsh
+
+
+#_name is "private" by convention (the underscore _ signals it shouldn’t be accessed directly from outside the class).
+
+#traditional gettter and setter method
+class Student:
+    def __init__(self, name, rollno):
+        self.__name = name       # private attribute
+        self.__rollno = rollno   # private attribute
+
+    # Getter method for name
+    def get_name(self):
+        return self.__name
+
+    # Setter method for name
+    def set_name(self, name):
+        self.__name = name
+
+    # Getter method for rollno
+    def get_rollno(self):
+        return self.__rollno
+
+    # Setter method for rollno
+    def set_rollno(self, rollno):
+        self.__rollno = rollno
+    def display(self):
+        print(f"Name: {self.__name}, Roll No: {self.__rollno}")
+# Creating object
+s = Student("Ishu", 7)
+
+# Accessing private attributes using getter
+print(s.get_name())    # Ishu
+print(s.get_rollno())  # 7
+s.display()
+# Updating private attributes using setter
+s.set_name("Arsh")
+s.set_rollno(2)
+
+print(s.get_name())    # Arsh
+print(s.get_rollno())  # 2
+s.display()
+
+# getter and setter with multiple properties
+class Student:
+    def __init__(self, name, rollno):
+        self._attributes = {"name": name, "rollno": rollno}
+
+    # Generic getter
+    def get_attr(self, key):
+        return self._attributes.get(key)
+
+    # Generic setter
+    def set_attr(self, key, value):
+        self._attributes[key] = value
+
+# Usage
+s = Student("Ishu", 7)
+print(s.get_attr("name"))     # Ishu
+print(s.get_attr("rollno"))   # 7
+
+s.set_attr("name", "Arsh")
+s.set_attr("rollno", 2)
+
+print(s.get_attr("name"))     # Arsh
+print(s.get_attr("rollno"))   # 2
+
+# static method
+class math :
+    def __init__(self,num):
+        self.num = num
+    def addtonum(self,n):
+        self.n = self.num + n
+    @staticmethod
+    def add(a,b):
+        return a+b
+
+a = math(5)
+print(a.num)
+a.addtonum(6)
+print(a.n)
+print(math.add(1,2))
+# or
+print(a.add(1,2))
+
+# class variable vs instance variable
+class employee:
+    companyname = "apple"
+    def __init__(self,name,emp_id):
+        self.name = name
+        self.emp_id = emp_id
+    def showdetails(self):
+        print(f"the name of the person is {self.name} from company {self.companyname} and id is {self.emp_id}")
+e1 = employee("ishu",78)
+e2 = employee("arsh",89)
+e1.companyname = "google"
+employee.companyname = "apple india"
+e2.companyname = "nestle"
+#employee.showdetails(e1)
+# or there are two methods
+e1.showdetails()
+e2.showdetails()
+
+#class method
+class student:
+    school = "dav" 
+    def __init__(self,name):
+        self.name = name
+    def showdetails(self):
+        print(f"the student name is {self.name} and belongs to  {self.school}")
+    @classmethod
+    def changeschool(cls,newschool):
+        cls.school = newschool
+
+s = student("ishu")
+s1 = student("arshu")
+student.changeschool("strawberry schhool")
+#s1.changeschool("dav") # it is changing only the instance and instance is passed to cls 
+s.showdetails()
+s1.showdetails()
+
+# __dic__
+class person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+p = person("ishu", 21)
+print(p.__dict__)
+
+# class method as alternate constructor
+class Student:
+    def __init__(self, name, rollno):
+        self.name = name
+        self.rollno = rollno
+
+    @classmethod
+    def string(cls, data):   # alternate constructor here data is "Arsh-102",cls is student
+        name, rollno = data.split("-") # unpacking list
+        return cls(name, int(rollno))
+
+# 2 ways to create a Student:
+s1 = Student("Ishveen", 101)        # normal constructor
+s2 = Student.string("Arsh-102") # alternate constructor
+print(s1.name,s2.age)
+
+
+#other example
+class Student:
+    def __init__(self, name, rollno):
+        self.name = name
+        self.rollno = rollno
+
+    @classmethod
+    def string(cls, data):   # alternate constructor
+      return cls(data.split("-")[0],data.split("-")[1])
+
+# 2 ways to create a Student:
+s1 = Student("Ishveen", 101)     
+s2 = Student.string("arsh-102-sch") 
+print(s2.name,s2.rollno)

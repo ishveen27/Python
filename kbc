@@ -1,0 +1,37 @@
+print("🎉 Welcome to KBC 🎉")
+
+# Questions
+questions = ["What is square of 5?",
+             "What is time?",
+             "What is rabbit?"]
+
+# Options for each question
+options = [
+    ["A. 25", "B. 6", "C. 3"], # list of lists
+    ["A. 5", "B. 7", "C. 8"],
+    ["A. animal", "B. lion", "C. car"]
+]
+
+# Correct answers
+answers = ["A", "B", "A"]  
+
+# Winning amounts
+amounts = [10000, 20000, 30000]
+
+total = 0  # Money won
+
+for i in range(len(questions)):
+    print(f"\nQ{i+1}: {questions[i]}")
+    for opt in options[i]:
+        print(opt)
+
+    user_input = input("Enter your choice (A/B/C): ").strip().upper()
+
+    if user_input == answers[i]:
+        total += amounts[i]
+        print(f"✅ Correct! You won ₹{amounts[i]}")
+    else:
+        print("❌ Wrong answer! Game Over.")
+        break
+
+print(f"\n🎊 You take home: ₹{total}")

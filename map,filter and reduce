@@ -1,0 +1,24 @@
+# map
+def cube(a):
+    return a*a*a
+l = [1,2,3,4,5]
+newl = list(map(cube,l))
+print(newl)
+ 
+# or
+ 
+l = [1,2,3,4,5]
+newl = list(map(lambda x : x*x*x,l))
+print(newl)
+
+# filter
+l = [7,8,9,10]
+newl = list(map(lambda x: x*x,l))
+newnewl = list(filter(lambda x : x>8, l))
+print(newnewl)
+
+# reduce
+from functools import reduce
+l = [7,3,5,2,1]
+newl = (reduce(lambda x,y : x+y,l))
+print(newl)

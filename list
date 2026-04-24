@@ -1,0 +1,64 @@
+list = ["apple","baanan","mango","sweety"]
+print(list[0])
+print(list[0:4])
+print(list[:])
+print(list[:-3])
+print(list[0:4:2])
+my_list =  [i for i in list if (len(i)>5)] # list comprehension
+print(my_list)
+if "apple" in list:
+    print("yes")
+else :
+    print("no")
+for fruit in list:
+    print(fruit)
+    for word in fruit:
+        print(word)
+
+# LIST METHOD
+list = [1,22,77,30,56,78,90,1]
+list.sort()
+print(list) # 1,1,22,30,56,77,78,90
+
+list.sort(reverse=True) # reverse of aboce
+print(list)
+
+list.append(45) # 1,1,22,30,56,77,78,90,45
+list.insert(3,60) # 1,1,22,60,30,56,77,78,90
+print(list)
+
+print(list.count(1)) #2
+
+print(list.pop(3)) # returns 60
+print(list)  # 1,1,22,30,56,77,78,90
+
+list.remove(22)   # 1,1,30,56,77,78,90
+print(list)
+
+print(list.index(77)) #2
+
+m = list.copy() # 1,1,30,56,77,78,90
+print(m)
+
+m = [100,111,112] 
+list.extend(m)  # 1,1,30,56,77,78,90,100,111,112
+print(list)
+
+k = list + m
+print(k) # 1,1,30,56,77,78,90,100,111,112
+
+                        max(list) # 112
+                        print(list)
+
+list.clear() # empty
+print(list)
+
+
+# remove word and strip at the same time
+fruits = ["mango ", " apple", " flower "]
+# strip spaces from each item
+fruits = [item.strip() for item in fruits]
+fruits.remove("apple")
+print(fruits)
+
+#

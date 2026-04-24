@@ -1,0 +1,29 @@
+import math
+print(math.sqrt((9)))
+
+import math as m   
+print(m.sqrt(25))
+
+from math import sqrt,pi
+result = m.sqrt(5)*pi
+print(result)
+
+from math import*
+result = m.sqrt(5)*pi
+print(result)
+
+print(dir(math))
+
+from ishu import welcome,ishu
+welcome()
+print(ishu)
+
+from ishu import * #  not allowed : from ishu import *  as i
+welcome()
+print(ishu)
+
+import ishu as i   
+print(i.ishu)
+
+
+

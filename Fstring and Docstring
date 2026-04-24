@@ -1,0 +1,23 @@
+a = "hey , my name is {1} and i belong to {0}"
+name = "ishu"
+country = "india"
+print(a.format(name,country))
+# print(a.format(name,country))
+
+#  fstring
+name = "ishu"
+country = "india"
+a = f" hey my name is {name} and i belong to {country}"
+
+
+price = 49.0111
+a = f"the price of new product is {price:.2f}"
+
+print(type(f"{2*30}")) # strring
+
+# doc string
+def square(n):
+    "this function take n as input and return the square of a number"
+    return n*n
+square
+print(square.__doc__)

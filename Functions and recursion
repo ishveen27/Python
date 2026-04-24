@@ -1,0 +1,132 @@
+# greeting func name 
+def func(name):
+      print("Hello", name + "! Good Day!")
+name = input("enter the name:")
+func(name)
+# geometric mean
+def geomean(a,b):
+    mean = (a*b)/(a+b)
+    print(mean)
+def isGreator(a,b):
+      if(a>b):
+            print("a is greator")
+      else:
+            print("b is greator")
+a = 8
+b = 9
+geomean(a,b)     
+isGreator(a,b) 
+
+# default argumenmt
+def geomean(a=1,b=2):
+      mean = (a*b)/(a+b)
+      print(mean)
+geomean(a,b)
+
+# OR
+def geomean(a=1,b=2):
+      mean = (a*b)/(a+b)
+      print(mean)
+geomean(3,4)
+ # Or
+def geomean(a=1,b=2):
+      mean = (a*b)/(a+b)
+      print(mean)
+geomean(3)
+
+# keyword argument
+def name(fname,mname,ename):
+      print("hello",fname,mname,ename)
+name(mname = "suman",fname = "rahul", ename = "kayia")
+
+# required argument   
+def geomean(a,b):
+    mean = (a*b)/(a+b)
+    print(mean)
+geomean(1,4)
+
+# variable length argument
+def geomean(*number): # tuple
+ sum = 0
+ for i in number:
+      sum+=i
+ return sum/len(number)
+ c = (5,6,7,1)
+ print(c)
+
+
+
+def name(**name): # dictionary
+   for i in name:
+        print("hello",name["fname"],name["mname"])
+name(mname = "suman",fname = "rahul")
+
+
+#greatest of 3 num
+def greatest(a,b,c):
+     if(a>b and a>c):
+          print("a is greatest")
+     elif(b>a and b>c):
+          print("b is greatest")
+     else:
+          print("c is greatest")
+greatest(11,12,13)
+
+#conversion to celcius to fahrenit
+def conv(c):
+     f = ((9/5*c)+32)
+     print(f)
+conv(56)
+
+# inch to cm
+def conv(inch):
+   cm=inch*2.54
+   print(cm)
+conv(10)
+
+#multiplicaipn table of a given number
+def multiply(num):
+    for i in range(1,11):
+        print(num,"X",i,"=",num*i)
+num = int(input("enter the num:"))
+multiply(5)
+
+# By default, Python’s print() function adds a newline (\n) at the end.
+#To prevent this, you can use the end parameter
+
+print("hello",end="")
+print("world")
+
+#recursion func to calculate sum of first n natural numbers
+def sum(n):
+     if n == 0:
+          return 0
+     else :
+          return n + sum(n-1) # func calling itself
+n = int(input("enter the num:"))
+a = sum(n)
+print(a)
+
+# factorical using recursion
+def fact(n):
+     if(n==0 or n==1):
+          return 1
+     else :
+          return n * fact(n-1)
+n = int(input("enter te num:"))
+c = fact(n)
+print(c)
+
+
+# fibonacii using recurison
+def fibonacci(n):
+     if(n==0):
+          return 0
+     elif(n==1):
+          return 1
+     else:
+          return fibonacci(n-1) + fibonacci(n-2)
+n = int(input("enter the num:"))
+# for i in range(n):
+#      print(fibonacci(i),end=" ") // fibonacci of all num from 0 to n-1
+print(fibonacci(n))     

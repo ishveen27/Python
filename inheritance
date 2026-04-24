@@ -1,0 +1,529 @@
+class employee:
+    def __init__(self,name,id):
+        self.name = name
+        self.id = id
+    def showdetails(self):
+        print(f" the name of the employee is {self.name} and id is {self.id}")
+
+class program(employee):
+#It automatically gets everything from employee (the constructor __init__ and showdetails method).
+        def language(self):
+         print("the default program is python")
+e = employee("ishu",7)
+e.showdetails()
+e1 = program("arsh",8)
+# e1.showdetails()
+e1.language()
+
+# single inheritance
+class animal:
+    def __init__(self,name,species):
+        self.name = name
+        self.species = species
+
+    def sound(self):
+        print("the animal makes sound")
+class dog(animal):
+    def __init__(self,name,breed): # dog class inherit init method also but we define it again to include new attribute
+        self.name = name 
+       # dog.__init__ overrides animal.__init__.
+        self.breed = breed 
+    def sound(self):
+        print("dog barks")
+d = dog("tom","husky")
+print(d.name)
+d.sound()# override parent method
+a = animal("lol", "d")
+a.sound()
+
+# multiple inheritance
+class dog1 :
+    def __init__(self,breed):
+        self.breed = breed
+    def show(self):
+         print(f"the{self.breed} is very nice")
+    
+class dog2 :
+    def __init__(self,name):
+     self.name = name
+    def show(self):
+        print(f"the name of animal is {self.name} is playing")
+class childdog(dog2,dog1): #it will print dog 2 func
+    def __init__(self,breed,name,species):
+        self.breed = breed
+        # dog1.__init__(self.breed) # call dog1 constructor
+        self.name = name
+        self.species = species
+    # def show(self):
+    #     print(f"the breed of animal is {self.breed} ,species is {self.species} and name is {self.name}")
+d3 = childdog("husky","max","local")
+d3.show()
+print(childdog.mro())
+
+# multiple inheritence
+class Father:
+    def skill1(self):
+        print("Father: Knows driving")mu
+class Mother:
+    def skill2(self):
+        print("Mother: Knows cooking")
+# Child inherits from both Father and Mother
+class Child(Father, Mother):
+    def skill3(self):
+        print("Child: Knows programming")
+
+# Create object of Child
+c = Child()
+c.skill1()   # From Father
+c.skill2()   # From Mother
+c.skill3()   # From Child
+
+# multilevel inheritance
+class vehicle:
+    def vehicle_show(self):
+        print("i am the vehile")
+class car(vehicle):
+    def car_y(self):
+        print("i am the car")
+class sportscar(car):
+    def sport_y(self):
+        print("i am the sportcar")
+s = sportscar()
+s.vehicle_show()
+s.car_y()
+
+# multilevel inheritance
+class person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def show(self):
+        print(f"the name of person is {self.name} and age is {self.age}")
+class employee(person):
+    def __init__(self,name,age,emp_id):
+        person.__init__(self,name,age)
+        self.emp_id = emp_id
+    def show1(self):
+        print(f"the emp_id of {self.name} is {self.emp_id}")
+class manager(employee):
+    def __init__(self,name,age,emp_id,salary):
+         employee.__init__(self,name,age,emp_id)
+         self.salary = salary
+    def show2(self):
+        print(f"the salary of {self.emp_id} is {self.salary} ")
+m = manager("ishu",21,"is_123",700000)
+print(m.name)
+m.show2()
+m.show1()
+m.show() 
+
+# animal 
+
+class Animal:
+    def __init__(self,name,species):
+      self.name = name
+      self.species = species
+
+    def show(self):
+        print(f"Name: {self.name}")
+        print(f"Species: {self.species}")
+
+class dog(Animal):
+    def __init__(self,name,breed):
+        Animal.__init__(self,name,species ="dog")
+        self.breed = breed
+
+    def show(self):
+            Animal.show(self)
+            print(f"the breed : {self.breed}")
+
+class golden(dog):
+    def __init__(self,name,color):
+        dog.__init__(self,name,breed="golden")
+        self.color = color
+
+    def show(self):
+            dog.show(self)
+            print(f"the color : {self.color}")
+o = golden("tom","black")
+o.show()
+print(golden.mro())
+
+# super keyword
+class parent :
+    def parent_method(self):
+        print("i am the parent")
+class child(parent):
+    # definin class ka paent_method
+    def parent_method(self):
+        print("ishu")
+        super().parent_method()
+    def child_method(self):
+        print("i am the child")
+        super().parent_method() # parent class ka parent metho call hoge
+child_object = child()
+child_object.child_method() #tab child method call hoge hor parent class ka parent method callh hoge
+child_object.parent_method() # tab child class ka parent methiod call hoge hor uske above ka parent methiod
+
+# hierarchical inheritance
+class shape:
+    def show1(self):
+        print("i am the shape class")
+class rectangle(shape):
+    def __init__(self,length,breadth):
+        self.length = length
+        self.breadth = breadth
+    def show2(self):
+        print(f"the area of rectangle is {self.length*self.breadth}")
+        return (self.length*self.breadth)
+class square(shape):
+    def __init__(self,length):
+        self.length = length
+    def show3(self):
+        return (self.length*self.length)
+r = rectangle(7,10)
+print(r.length)
+r.show1()
+print(r.show2())
+
+# abstraction
+
+from abc import ABC, abstractmethod
+
+# Abstract class
+class Person(ABC):
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Abstract method
+    @abstractmethod
+    def show_details(self):
+        pass
+class Student(Person):
+    def __init__(self, name, age, rollno):
+        super().__init__(name, age) # it hides how from where name comes 
+        self.rollno = rollno
+
+    # Implementing abstract method
+    def show_details(self):
+        print(f"Name: {self.name}, Age: {self.age}, Roll No: {self.rollno}")
+
+
+# Object creation
+s = Student("Ishu", 21, 7)
+s.show_details()  
+
+# method overriding
+class shape:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    def area(self):
+        return self.x*self.y
+class circle(shape):
+    def __init__(self,radius):
+        self.radius = radius
+        super().__init__(radius,radius)
+    def area(self):
+        return 3.14*super().area()
+s = shape(3,5)
+print(s.area())
+c = circle(5)
+print(c.area())
+
+# method overloading in c++
+# include <iostream>
+# using namespace std;
+
+# class Calculator {
+# public:
+#     // Add two integers
+#     int add(int a, int b) {
+#         return a + b;
+#     }
+
+#     // Add three integers
+#     int add(int a, int b, int c) {
+#         return a + b + c;
+#     }
+
+#     // Add two doubles
+#     double add(double a, double b) {
+#         return a + b;
+#     }
+# };
+
+# int main() {
+#     Calculator calc;
+
+#     cout << calc.add(5, 10) << endl;       // Calls int add(int, int)
+#     cout << calc.add(2, 3, 4) << endl;     // Calls int add(int, int, int)
+#     cout << calc.add(2.5, 3.5) << endl;    // Calls double add(double, double)
+
+#     return 0;
+# }
+
+# dunder method
+class employee:
+    def __init__(self,name):
+        self.name = name
+    def __str__(self):
+     return(f"heloo {self.name}")
+    def __repr__(self):
+        return(f"bie {self.name}")
+    def __len__(self):
+        return len(self.name) 
+e = employee("harry")
+print(e)
+print(len(e))
+
+# operator overloading
+
+class Vector:
+  def __init__(self, i, j, k):
+    self.i = i
+    self.j = j
+    self.k = k
+
+  def __str__(self):
+    return f"{self.i}i + {self.j}j + {self.k}k"
+
+  def __add__(self, x):
+    return Vector(self.i + x.i,  self.j+x.j, self.k+x.k) 
+v1 = Vector(3, 5, 6)
+print(v1)
+
+v2 = Vector(1, 2, 9)
+print(v2)
+
+print(v1 + v2)
+print(type(v1 + v2))
+
+
+
+#
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+class Employee(Person):
+    def __init__(self, name, age, salary):
+        super().__init__(name, age)
+        self.salary = salary
+
+    # Operator Overloading: '+' to add salaries
+    def add(self, other):
+        return self.salary + other.salary
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}, Salary: {self.salary}")
+# Objects
+e1 = Employee("Ishu", 21, 50000)
+e2 = Employee("Arsh", 25, 60000)
+# Using overloaded '+' operator
+total_salary = e1 + e2 # if we dont overload or does this we will get error
+print(f"Total Salary: {total_salary}")
+# Display individual details
+e1.display()
+e2.display()
+
+
+#
+class programmer:
+    company = "microsoft"
+    def __init__(self,name,age,id):
+        self.name = name
+        self.age = age
+        self.id = id
+    def show(self):
+        print(f"the name of employee is {self.name}, age is {self.age} and id is {self.id} working at {self.company}")
+a = programmer("harry",21,"ish123")
+b = programmer("isu",22,"ish345")
+a.show()
+b.show()
+
+# 
+import math
+
+class Calculate:
+    def __init__(self, num):
+        self.num = num
+
+    def square(self):
+        return self.num ** 2
+
+    def cube(self):
+        return self.num ** 3
+
+    def squareroot(self):
+        return math.sqrt(self.num)
+
+    @staticmethod
+    def greet():
+        print("Welcome to the Calculator Class 😊")
+
+
+# Example usage
+Calculate.greet()   # calling static method without object
+
+c = Calculate(9)
+print(f"Square: {c.square()}")
+print(f"Cube: {c.cube()}")
+print(f"Square Root: {c.squareroot()}")
+
+#
+class Train:
+    def __init__(self, name, fare, seats):
+        self.name = name
+        self.fare = fare
+        self.seats = seats
+
+    def get_status(self):
+        print(f"The name of the train is {self.name}")
+        print(f"Seats available: {self.seats}")
+
+    def fare_info(self):
+        print(f"The price of a ticket is Rs {self.fare}")
+
+    def book_ticket(self):
+        if self.seats > 0:
+            print(f"Your ticket has been booked! Your seat number is {self.seats}")
+            self.seats -= 1   # reduce seat count
+        else:
+            print("Sorry, this train is full! No seats available.")
+
+
+# Example usage
+t = Train("Rajdhani Express", 1500, 3)
+
+t.get_status()      # Train info
+t.fare_info()       # Ticket price
+
+t.book_ticket()     # Book 1
+t.book_ticket()     # Book 2
+t.book_ticket()     # Book 3
+t.book_ticket()     # Try booking again (no seats left)
+
+t.get_status()      # Check updated seats
+
+
+
+
+class MyClass:
+    a = 10   # class attribute
+# create object
+obj = MyClass()
+
+print("Before change:")
+print(MyClass.a)
+print(obj.a)
+
+# change using object
+obj.a = 0   # setting directly via object
+
+print("\nAfter change:")
+print(MyClass.a)
+print( obj.a) # this will change only
+
+
+#
+class Animal:
+    def __init__(self):
+        print("This is an Animal")
+
+class Pet(Animal):
+    def __init__(self):
+        super().__init__()   # call Animal constructor
+        print("This is a Pet")
+
+class Dog(Pet):
+    def __init__(self):
+        super().__init__()   # call Pet constructor
+        print("This is a Dog")
+
+    def show(self):
+        print("The dog barks 🐶")
+
+# Example usage
+d = Dog()
+d.show()
+
+#
+class Complex:
+    def __init__(self, i, j, k):
+        self.i = i
+        self.j = j
+        self.k = k
+
+    def __add__(self, other):
+        return Complex(self.i + other.i,
+                       self.j + other.j,
+                       self.k + other.k)
+
+    def __mul__(self, other):
+        return Complex(self.i * other.i,
+                       self.j * other.j,
+                       self.k * other.k)
+
+    def __str__(self):
+        return f"{self.i}i + {self.j}j + {self.k}k"
+
+
+# Example usage
+v1 = Complex(1, 2, 3)
+v2 = Complex(4, 5, 6)
+
+print("v1 =", v1)
+print("v2 =", v2)
+print("v1 + v2 =", v1 + v2)   # calls __add__
+print("v1 * v2 =", v1 * v2)   # calls __mul__
+
+
+class Employee:
+    def __init__(self, salary, increment):
+        self.salary = salary
+        self._increment = increment
+    @property
+    def salaryincrement(self):
+        return self.salary + (self.salary*self._increment)
+    @salary.setter
+    def salary(self,value):
+        self._increment = value
+        return value
+e1 = employee(15500,0.5)
+print(e1.salaryincrement)
+e1.salary = 10
+print(e1.salaryincrement)
+
+
+
+class Complex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __add__(self, other):
+        return Complex(self.real + other.real, self.imag + other.imag)
+
+    def __mul__(self, other):
+        # (a+bi)(c+di) = (ac - bd) + (ad+bc)i
+        real_part = self.real*other.real - self.imag*other.imag
+        imag_part = self.real*other.imag + self.imag*other.real
+        return Complex(real_part, imag_part)
+
+    def __str__(self):
+        return f"{self.real} + {self.imag}i"
+c1 = Complex(2, 3)   # 2 + 3i
+c2 = Complex(4, 5)   # 4 + 5i
+
+print("c1 =", c1)
+print("c2 =", c2)
+
+print("Sum =", c1 + c2)        # 6 + 8i
+print("Product =", c1 * c2)   
+

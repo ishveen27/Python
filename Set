@@ -1,0 +1,76 @@
+a = {} // it will give dictionary
+print(type(a))
+harry = set() # to\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\]]]]]]\\\\\\\\\\\\\\\\\\\\\ make empty set use this
+print(type(harry)) 
+
+
+set = {"a","b","b","c","d"}
+# print(set) # order is not maintained and duplicate values doesnt come in the output
+for i in set: # indexing using for loop
+    print(i) 
+# print(set[0]) cant acess element by index
+
+# set methods
+city = {"chd","patiala","delhi","banglore","mandi"}
+city2 = {"chd","lucknow","jaipur","banglore"}
+city3 = city.union(city2)
+print(city3)
+
+
+city3 = city.intersection(city2)
+print(city3)777777
+
+city.intersection_update(city2)# update in oroginal set
+print(city)
+
+
+city = {"chd","patiala","delhi","banglore","mandi"}
+city2 = {"chd","lucknow","jaipur","banglore"}
+city3 = city.symmetric_difference(city2) #union - intersection # non common values
+print(city3)
+city.symmetric_difference_update(city2) # update in the original set
+print(city3)
+
+city  = {"chd","patiala","delhi","banglore","mandi"}
+city2 = {"chd","lucknow","jaipur","banglore"}
+city3 = city.difference(city2) # patiala,delhi,mandi(a-b)
+print(city3)
+city.difference_update(city2) # update in the original set
+print(city3)
+
+
+fruit = {"apple","mango","orange","kiwi"}
+fruit2 = {"bananan","dragon"}
+fruit3 = fruit.isdisjoint(fruit2)
+print(fruit3)
+fruit2 = {"apple","mango"}
+fruit3 = fruit.issuperset(fruit2) # all element should be common
+print(fruit3)
+fruit3 = fruit.issubset(fruit2) # all element should be common
+print(fruit3)
+
+vehicle = {"car","bike","scooter"}
+vehicle.add("aero")
+vehicle.remove("car")
+# vehicle.remove("evehicle") it will throw error since it is not present
+vehicle.discard("bike")
+vehicle.discard("evehicle") #it will not throw error 
+print(vehicle)
+
+
+city = {"chd", "patiala", "delhi", "banglore", "mandi"}
+
+removed = city.pop()  # removes some element pop() removes a random element from the set.
+# You cannot control which element is removed, because sets are unordered.
+print("Removed element:", removed)
+print("Remaining set:", city)
+print(city.clear())
+
+
+fruit = {"app","sch","ar"}
+del fruit
+s1 = {1,2,3,4,5,6}
+s2 = {5,6,7,8,9}
+print(s1.union(s2))
+# s1.update(s2) # it will update s1 # to merge two set
+print(s1,s2)

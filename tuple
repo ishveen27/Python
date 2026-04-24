@@ -1,0 +1,53 @@
+tuple = (1,) # only one eleemnt in tuple needs a comma
+print(type(tuple)) # ordered and unchangeable
+
+# changes in tuple # convert it to list and back to tuple
+ 
+fruits = ("apple","apple","banana","orange","mango","apple")
+temp = list(fruits)
+temp.append("kiwi")
+temp.insert(0,"dragonfruit")
+temp.remove("orange")
+fruits = tuple(temp)
+print(fruits)
+print(fruits.count("apple"))
+print(fruits.index("apple",0,4))
+
+
+# Program to enter seven fruits into a list
+fruits = []
+
+for i in range(7):
+    fruit = input(f"Enter fruit {i+1}: ") # Here {i+1} means: take the value of i+1 and put it inside the string.
+    fruits.append(fruit) # here python take i as normal text if not fstring is not used
+print("Your fruit list is:", fruits)
+
+# Accept marks of 6 students
+marks = []
+
+for i in range(6):
+    mark = int(input(f"Enter marks of student {i+1}: "))
+    marks.append(mark)
+# Sort the marks
+marks.sort()
+print("Marks in sorted order:", marks)
+
+# sum a list wiht 4 number
+numbers = []
+
+sum = 0
+for i in range(4):
+    number = input(f"Enter number {i+1}: ")
+    numbers.append(number)
+    sum+=i
+
+print("Your numbers list is:", numbers)
+print(sum)
+
+# unpack tuple
+tuple = ("a","b","c","d","e")
+(x,y,*z) = tuple
+print(x)
+print(y)
+print(z)
+# *z grabs all remaining values as a list

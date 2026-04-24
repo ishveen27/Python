@@ -1,0 +1,88 @@
+dic = { "name" : "ishveen", "age ":"21", "sex" :"female"}
+print(dic["name"])
+print(dic.get("name"))
+print(dic)
+# print(dic.keys())
+# print(dic.values())
+# print(dic.items())
+# for key in dic.keys():
+#     print(f"the value corresponding to  key {key} is {dic[key]}")
+for  key,value in dic.items():
+    print(f"the value corresponding to the  key {key} is {value}")# dic[key] = value
+
+# method in dic
+a = {'name': 'arsh', 'age': 21, 'sex': 'female'}
+a.update({'dob': '13 feb'})
+a.pop('name')             
+del a["age"] # if key is not provided then del delete the dictionary entirely
+a["colour"] = "pink" # for adding anything
+b = a.copy() 
+print(a)
+print(b)
+
+# nsted dicitonary
+myfamily = {
+   "child1": {
+       "name":"ishu",
+       "age" : 21
+   },
+   "child2" : {
+       "name": "hargobind",
+       "age": 15
+   },
+   "mother":{
+       "name":" harpreet",
+       "age": 49
+   }
+}
+print(myfamily["child1"]["name"])
+
+# for updation
+
+myfamily["child1"]["age"] = 22
+print(myfamily["child1"])
+# for adding
+
+myfamily["child3"] = {"name": "simran", "age": 10, "gender": "female"}
+print(myfamily["child3"])
+print(myfamily)
+print(myfamily.items())
+
+# 
+# Hindi to English dictionary
+hindi_english = {
+    "नमस्ते": "Hello",
+    "पानी": "Water",
+    "घर": "Home",
+    "धन्यवाद": "Thank you",
+    "सूरज": "Sun",
+    "चाँद": "Moon"
+}
+
+# User input to look up a word
+word = input("Enter a Hindi word to translate: ")
+
+# Look up the word
+if word in hindi_english:
+    print(f"The English translation of '{word}' is '{hindi_english[word]}'")
+else:
+    print(f"Sorry, '{word}' is not in the dictionary.")
+
+# to input eight number from usrr
+numbers = []
+for i in range(8):
+    num = int(input(f"Enter number {i+1}: "))
+    numbers.append(num)
+unique_num = set(numbers)
+print("the unique numbers are:",unique_num)
+
+#
+dict = {}
+for i in range(4):
+    name = input(f"enter the {i+1}name:")
+    language =input(f"enter the language of {name}:")
+    dict[name] = language
+for key , value in dict.items():
+    print(f"{key} : {value}")
+
+

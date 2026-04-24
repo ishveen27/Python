@@ -1,0 +1,71 @@
+# fibonacii  term using recursion
+def fibonacii(n):
+    if n==0:
+        return 0
+    elif(n==1):
+        return 1
+    else :
+        return fibonacii(n-1) + fibonacii(n-2)
+print(fibonacii(6))
+
+#fibonacii term without recursion
+def fibonacci(n):
+    sequence = [0, 1]   # Initialize first two terms
+    
+    for i in range(2, n):
+        next_term = sequence[-1] + sequence[-2]
+        sequence.append(next_term)
+    return sequence[n-1]
+num = 10
+print(fibonacci(num))
+
+# fibonacii sequence with recursion
+def fibonacii(n):
+    if n==0:
+        return 0
+    elif(n==1):
+        return 1
+    else :
+        return fibonacii(n-1) + fibonacii(n-2)
+n = int(int(input("enter the num:")))
+for i in range(2,n):
+    print(fibonacii(i), end = "")
+
+# fibonacii  sequence without recursion
+
+def fibonacci(n):
+    sequence = [0, 1]   # Initialize first two terms
+    
+    for i in range(2, n):
+        next_term = sequence[-1] + sequence[-2]
+        sequence.append(next_term)
+    return sequence
+
+num = 10
+print(fibonacci(num))
+
+
+# sum of digit with reccursion
+
+def sum_of_digits(n):
+    if n == 0:           # Base case: if number is 0
+        return 0
+    else:
+        return n % 10 + sum_of_digits(n // 10)  # Last digit + sum of remaining digits
+num = 12345
+result = sum_of_digits(num)
+print("Sum of digits:", result)
+
+
+# sum of digit without reccursion
+
+def sum(n):
+
+    while n>0:
+        total = 0
+        digit = n%10
+        total+=digit
+        n = n//10
+    return total
+print(sum(12345))
+
